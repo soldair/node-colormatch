@@ -1,0 +1,8 @@
+js jpeg encoder
+http://www.bytestrom.eu/data/media/experiments/jpegencoder/examples/jpeg_encoder_basic.js
+
+ycbcr/yuv
+http://en.wikipedia.org/wiki/YCbCr
+
+png decoder in all js
+https://github.com/devongovett/png.js
