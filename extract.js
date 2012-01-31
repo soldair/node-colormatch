@@ -39,7 +39,6 @@ function parseImagickColors(colorString){
   var rows = [];
   colorString.split("\n").forEach(function(str){
       parts = str.trim().replace(/([(]) |(,) |:( )/g,'$1$2$3').split(' ');
-      console.log(parts);
       if(parts.length >= 2) {
         var count = parts[0];
         var rgb = parts[1];

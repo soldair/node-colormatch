@@ -1,7 +1,5 @@
-var spawn = require('childprocess').spawn;
 
 
-var match = new ColorMatch();
 
 //
 //pass colormatch constrictor if you require different options 
@@ -12,6 +10,8 @@ exports.ColorMatch = ColorMatch;
 //expects rgb arrays as arguments [r,g,b]
 //
 exports.quickMatch = function(rgb1,rgb2){
+  var match = new ColorMatch();
+
   return match.quickMatch(rgb1,rgb2);
 }
 
@@ -20,6 +20,7 @@ exports.quickMatch = function(rgb1,rgb2){
 //returns range of argb values that are visually simmilar.
 //
 exports.rgbRange = function(r,g,b){
+  var match = new ColorMatch();
   return match.rgbRange(r,g,b);
 }
 
@@ -71,7 +72,7 @@ ColorMatch.prototype = {
     res.b1 = (b-rOffset)>0?(b-rOffset):0;
     res.b2 = (b+rOffset)<255?(b+rOffset):255;
     
-    return $res;
+    return res;
   }
 };
 

@@ -5,10 +5,13 @@
  , "author": "Ryan Day <soldair@gmail.com>"
  , "keywords": ["image", "indexing", "color", "search"]
  , "main": "./main.js"
- ,"homepage":"http://github.com/soldair/node-watchfd"
+ ,"homepage":"http://github.com/soldair/node-colormatch"
  ,"repository":{
 	"type":"git"
-	,"url":"git://github.com/soldair/node-colorindexer.git"
+	,"url":"git://github.com/soldair/node-colormatch.git"
+ }
+ ,"scripts":{
+  "test":"node ./test/extract.js & node ./test/match.js"
  }
  ,"engines":{"node":">=0.6.0"}
 }
