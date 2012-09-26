@@ -1,8 +1,7 @@
 
 
-
 //
-//pass colormatch constrictor if you require different options 
+//pass colormatch constructor if you require different options 
 //
 exports.ColorMatch = ColorMatch;
 
