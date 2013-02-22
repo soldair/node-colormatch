@@ -40,7 +40,7 @@ function parseImagickColors(colorString){
   colorString.split("\n").forEach(function(str){
       parts = str.trim().replace(/([(]) |(,) |:( )/g,'$1$2$3').split(' ');
       if(parts.length >= 2) {
-        var count = parts[0];
+        var count = +parts[0];
         var rgb = parts[1];
         totalPixels += count;
         rows.push({pixels:count,rgb:rgb.replace(/[)(]/g,'').split(',')});
