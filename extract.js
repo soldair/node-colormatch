@@ -4,30 +4,47 @@ var spawn = require('child_process').spawn;
 exports.imageMagick = function(path,cb){
 
   var convert = spawn('convert',[path,'-colors','16','-depth','8','-format', '%c', 'histogram:info:-']),
-      out = "",
-      err = "";
+      out = "", 
+      err = ""; 
 
   convert.stdout.on('data',function(data){
     out += data.toString();
-  });
+  }); 
 
   convert.stdout.on('data',function(data){
     err += data.toString();
-  });
+  }); 
 
-  convert.on('exit',function(code){
-    err = code?(err?err:code):false;
+  // a big note. exit may be fired before or after close of stdout (0.8.20)
+  // to respond properly in any lib using spawn you really need to wait for both.
+  var exit,closed
+  , done = function(){
+    if(exit === undefined) process.exit(9);    
+    err = exit?(err?err:exit):false;
     var colors;
     if(!err){
       colors = parseImagickColors(out);
-    }
+      if(!colors.length){
+        console.log('no colors from parse:',out);
+      }   
+    }   
+    cb(exit?(err?err:exit):false,colors); 
+  };  
 
-    cb(code?(err?err:code):false,colors); 
-  });
+  convert.on('exit',function(code){
+    exit = code;
+    if(closed) done();
+  }); 
+
+  convert.stdout.on('close',function(){
+    closed = true;
+    if(exit !== undefined) done(); 
+  }); 
 
   convert.stdin.end();
 
 }
+
 
 //
 //a valid color object response is []
