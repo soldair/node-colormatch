@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/soldair/node-colormatch.png)](http://travis-ci.org/soldair/node-colormatch)
 
 
 ## ColorMatch
