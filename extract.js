@@ -58,7 +58,7 @@ function parseImagickColors(colorString){
       parts = str.trim().replace(/([(]) |(,) |:( )/g,'$1$2$3').split(' ');
       if(parts.length >= 2) {
         var count = +parts[0];
-        var rgb = parts[1];
+        var rgb = parts[parts.length - 1].substring(4);
         totalPixels += count;
         rows.push({pixels:count,rgb:rgb.replace(/[)(]/g,'').split(',')});
       }
