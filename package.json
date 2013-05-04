@@ -1,17 +1,18 @@
 { 
- "name": "colormatch"
+   "name": "colormatch"
  , "description": "A module for extracting colors from images and for generating lookup ranges that accept rgb and outputs ranges of rgb values for db lookups. Right now it uses ImageMagik in a child process to reduce the colorspace and return the top colors of an image. Alterntives with node-canvas or an all js jpeg decoder could be used. The latterwith the same js color quantization algorthims that would be needed to reduce the colorspace of the former."
- , "version": "0.0.3"
+ , "version": "0.0.4"
  , "author": "Ryan Day <soldair@gmail.com>"
+ , "contributors":['whyohwhyamihere']
  , "keywords": ["image", "indexing", "color", "search"]
  , "main": "./main.js"
- ,"homepage":"http://github.com/soldair/node-colormatch"
- ,"repository":{
-	"type":"git"
-	,"url":"git://github.com/soldair/node-colormatch.git"
+ , "homepage":"http://github.com/soldair/node-colormatch"
+ , "repository":{
+	   "type":"git"
+	 , "url":"git://github.com/soldair/node-colormatch.git"
  }
  ,"scripts":{
-  "test":"node ./test/extract.js & node ./test/match.js"
+   "test":"node ./test/extract.js && node ./test/match.js"
  }
  ,"engines":{"node":">=0.6.0"}
 }
