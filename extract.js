@@ -11,7 +11,7 @@ exports.imageMagick = function(path,cb){
     out += data.toString();
   }); 
 
-  convert.stdout.on('data',function(data){
+  convert.stderr.on('data',function(data){
     err += data.toString();
   }); 
 
